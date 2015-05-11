@@ -15,7 +15,7 @@
 # - player turn
 
 class Card
-  SUITS = %w(H D C S)
+  SUITS = %w(Diamonds Clubs Hearts Spades)
   CARDS = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
 
   attr_reader :name, :suit
@@ -26,9 +26,11 @@ class Card
   end
 
   def to_s
-    message = "| Suit:#{suit}, Card:#{name} |"
+    message = "+" + "-" * 25 + "+\n"
+    message += "|" + "Suit:#{suit}, Card:#{name}".center(25) + "|"
     message += " <= MASK CARD" if suit == 'X' && name == 'X'
-    message
+    message += "\n+" + "-" * 25 + "+\n"
+
   end
 end
 
@@ -56,7 +58,7 @@ class Deck
   def deal_card(player)
     new_card = cards.pop
     player.cards << new_card
-    puts "Dealing #{new_card} to #{player.name}." if player.cards.size > 2
+    puts "Dealing \n#{new_card} to #{player.name}." if player.cards.size > 2
   end
 end
 
@@ -74,7 +76,7 @@ class Player
   end
 
   def display_cards(show_mask_card = false)
-    puts "#{name}'s card:"
+    puts "#{name}'s cards:"
     cards.each do |card|
       card = Card.new('X', 'X') if !show_mask_card && mask_card.last == card
       puts card
