@@ -185,7 +185,7 @@ class Game
 
     while player.hit?
       deck.deal_card(player)
-      sleep 0.5 if player.name == DEALER_NAME
+      sleep 1 if player.name == DEALER_NAME
       check_winner(player)
     end
 
