@@ -208,7 +208,7 @@ class Game
     dealer.display_cards_sum
 
     if gambler.cards_sum > dealer.cards_sum
-      player.display_winning_message
+      gambler.display_winning_message
     elsif gambler.cards_sum < dealer.cards_sum
       dealer.display_winning_message
     else
@@ -242,4 +242,5 @@ class Game
   end
 end
 
+system "clear"
 Game.new.run
