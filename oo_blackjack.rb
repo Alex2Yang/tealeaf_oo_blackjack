@@ -30,7 +30,6 @@ class Card
     message += "|" + "Suit:#{suit}, Card:#{name}".center(25) + "|"
     message += " <= MASK CARD" if suit == 'X' && name == 'X'
     message += "\n+" + "-" * 25 + "+\n"
-
   end
 end
 
