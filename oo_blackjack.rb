@@ -42,7 +42,7 @@ class Deck
   end
 
   def new!
-    self.cards.clear
+    cards.clear
     Card::SUITS.product(Card::CARDS).each do |suit, card|
       self.cards << Card.new(suit, card)
     end
@@ -51,7 +51,7 @@ class Deck
   end
 
   def shuffle!
-    self.cards.shuffle!
+    cards.shuffle!
   end
 
   def deal_card(player)
@@ -99,7 +99,7 @@ class Player
       sum -= 10 if sum > BLACKJACK
     end
 
-  sum
+    sum
   end
 
   def hit_blackjack?
